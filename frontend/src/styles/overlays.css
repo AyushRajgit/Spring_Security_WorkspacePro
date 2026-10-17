@@ -1,0 +1,28 @@
+.toast { position: fixed; z-index: 20; top: 20px; right: 23px; display: flex; max-width: min(460px, calc(100vw - 30px)); align-items: center; gap: 10px; padding: 11px 12px; border: 1px solid #e6eee0; border-radius: 8px; color: #425346; background: white; box-shadow: var(--shadow-soft); font-size: 11px; animation: toast-in .22s ease-out; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(-7px); } to { opacity: 1; transform: translateY(0); } }
+.toast-error { border-color: #f0dfdc; color: #80453f; }.toast-check { display: grid; width: 21px; height: 21px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #527c54; background: #edf5e7; }.toast-error .toast-check { color: #a34e44; background: #fbefed; }
+.toast button { display: grid; width: 22px; height: 22px; flex: 0 0 auto; place-items: center; margin-left: auto; border: 0; color: #9aa49c; background: transparent; }
+
+.modal-backdrop { position: fixed; z-index: 15; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(18,35,27,.43); backdrop-filter: blur(3px); animation: fade-in .16s ease-out; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.modal { width: min(540px, 100%); overflow: hidden; border: 1px solid rgba(255,255,255,.8); border-radius: 13px; background: white; box-shadow: 0 25px 80px rgba(15,36,24,.2); animation: modal-in .2s ease-out; }
+@keyframes modal-in { from { opacity: .6; transform: translateY(8px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.modal-heading { position: relative; padding: 22px 25px 17px; border-bottom: 1px solid #edf0eb; }
+.modal-heading-icon { display: grid; width: 34px; height: 34px; place-items: center; margin-bottom: 13px; border-radius: 9px; color: #4b6a4e; background: #edf4df; }
+.modal-heading h2 { margin: 0; color: #2c3a32; font: 700 19px/1.3 'Manrope', sans-serif; letter-spacing: -.5px; }
+.modal-heading p { margin: 5px 0 0; color: #97a198; font-size: 10px; }
+.modal-close { position: absolute; top: 17px; right: 18px; display: grid; width: 29px; height: 29px; place-items: center; border: 1px solid #edf0ec; border-radius: 7px; color: #89958b; background: white; }
+.modal-close:hover { color: #394a3d; background: #f8faf6; }
+.modal-form { padding: 20px 25px 22px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 13px; }
+.form-field { display: flex; min-width: 0; flex-direction: column; gap: 7px; }
+.field-label { color: #55635a; font-size: 10px; font-weight: 600; }
+.field-label i { color: #c47c5b; font-style: normal; }
+.form-field input { width: 100%; height: 39px; padding: 0 11px; border: 1px solid #e4e9e2; border-radius: 6px; outline: 0; color: #344239; background: #fff; font-size: 10px; transition: border .16s, box-shadow .16s; }
+.form-field input::placeholder { color: #b2bab4; }.form-field input:focus { border-color: #93ae76; box-shadow: 0 0 0 3px rgba(174,204,133,.17); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 22px; padding-top: 16px; border-top: 1px solid #edf0eb; }
+.button-spinner { width: 13px; height: 13px; border: 2px solid rgba(255,255,255,.4); border-top-color: white; border-radius: 50%; animation: spin .7s linear infinite; }
+.permission-note { display: flex; gap: 10px; margin-bottom: 17px; padding: 11px; border: 1px solid #f0ebdb; border-radius: 7px; background: #fcfaf2; }
+.permission-note > span { display: grid; width: 26px; height: 26px; flex: 0 0 auto; place-items: center; border-radius: 6px; color: #a28142; background: #f5edd6; }
+.permission-note p { margin: 0; color: #877d69; font-size: 10px; line-height: 1.6; }.permission-note strong { color: #655b46; }
+
