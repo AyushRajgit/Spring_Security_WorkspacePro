@@ -1,9 +1,9 @@
 package in.cper.backend.controller;
 
-import in.cper.backend.dto.AuthResponse;
-import in.cper.backend.dto.LoginRequest;
-import in.cper.backend.dto.RegisterRequest;
+import in.cper.backend.dto.LoginRequestDTO;
+import in.cper.backend.dto.RegisterRequestDTO;
 import in.cper.backend.service.AuthService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,15 +24,14 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterRequest registerRequest) {
-        // returning exception if user already registered
-        authService.register(registerRequest);
+    public ResponseEntity<String> register(@RequestBody RegisterRequestDTO registerRequestDTO) {
+        authService.registerNewUser(registerRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body("User Registered Successful!");
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest) {
-        AuthResponse authResponse = authService.login(loginRequest);
-        return ResponseEntity.status(HttpStatus.OK).body(authResponse);
+    public ResponseEntity<String> login(@RequestBody LoginRequestDTO loginRequestDTO, HttpServletRequest request) {
+        authService.login(loginRequestDTO, request);
+        return ResponseEntity.status(HttpStatus.OK).body("Successfully Logged In!");
     }
 }
